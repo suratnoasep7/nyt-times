@@ -1,9 +1,12 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { SearchArticle } from './SearchBar'
+import '@testing-library/jest-dom'
+import {SearchArticle} from './SearchBar' // pastikan ini default export
 
-test('renders input box', () => {
-  render(<SearchArticle />)
-  const input = screen.getByPlaceholderText(/search/i)
-  expect(input).toBeInTheDocument()
+describe('SearchBar', () => {
+  it('renders search input', () => {
+    render(<SearchArticle />)
+    const input = screen.getByPlaceholderText(/search new york times/i)
+    expect(input).toBeInTheDocument()
+  })
 })
